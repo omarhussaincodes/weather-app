@@ -1,24 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/Navbar';
+import WeatherApp from './WeatherApp';
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <>
+      <header className="sticky top-0 z-50 max-w-full mx-auto xl:items-center">
+        <Navbar />
       </header>
-    </div>
+      <main>
+          <section className='flex flex-col justify-between items-center z-10 scroll-smooth'>
+            <WeatherApp />
+          </section>
+      </main>
+    </>
+
   );
 }
 
