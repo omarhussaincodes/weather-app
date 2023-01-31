@@ -1,6 +1,7 @@
 import React from 'react';
 import { BsSearch } from "react-icons/bs";
 import UseInputState from '../hooks/useInputState';
+import { AiFillCloseCircle } from 'react-icons/ai'
 
 function Search({ onSubmit }) {
 
@@ -12,7 +13,6 @@ function Search({ onSubmit }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(inputValue);
         onSubmit(inputValue);
     };
 
@@ -25,7 +25,10 @@ function Search({ onSubmit }) {
                  outline-none md:border-none focus:border-stone-200 bg-header-primary' type="text"
                     placeholder={'Search Location'}
                 />
-                <button disabled={!inputValue}>
+                <button disabled={!inputValue} className="disabled:opacity-25">
+                    {
+                        inputValue && <AiFillCloseCircle size={25} className="mx-1 px-1 inline-flex text-stone-400 hover:text-header-primary scale-110 ease-out" onClick={reset} />
+                    }
                     <BsSearch size={30} className="hidden md:inline-flex h-8 mx-2 text-stone-200 bg-header-primary rounded-full p-2 cursor-pointer
                 hover:contrast-150 border-stone-200" />
                 </button>
